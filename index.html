@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Scalp Micropigmentation in Hamburg von einem Barber, nicht von einem Tattoo-Artist: Geheimratsecken und lichtes Haar optisch kaschieren, ganz ohne OP. Kostenloser, ehrlicher Scalp-Check vor Ort oder per Video-Call.">
+<link rel="icon" href="media/favicon.png" type="image/png">
+<title>Blended Scalps — Scalp Micropigmentation Hamburg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17140F;
+    --ink-soft:#221D16;
+    --ink-line:#3A3226;
+    --paper:#F5EFE4;
+    --paper-line:#E3D9C6;
+    --brass:#B9873F;
+    --brass-light:#D8AE71;
+    --skin:#E7B78C;
+    --ash:#B7AEA0;
+    --charcoal:#2A251E;
+    --good:#7C9473;
+    --bad:#B06A56;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    margin:0;
+    font-weight:900;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  :focus-visible{outline:2.5px solid var(--brass); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(23,20,15,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--ink-line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:900; font-size:1.35rem; color:var(--paper);
+    letter-spacing:0.02em;
+  }
+  .brand span{color:var(--brass);}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{color:var(--ash); font-size:0.92rem; font-weight:500; transition:color .15s;}
+  nav.links a:hover{color:var(--paper);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:2px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    letter-spacing:0.09em; text-transform:uppercase; font-weight:500;
+    border:1px solid transparent; cursor:pointer; transition:all .18s;
+  }
+  .btn-primary{background:var(--brass); color:var(--ink);}
+  .btn-primary:hover{background:var(--brass-light);}
+  .btn-ghost-dark{border-color:var(--ink-line); color:var(--paper);}
+  .btn-ghost-dark:hover{border-color:var(--brass); color:var(--brass-light);}
+  .btn-ghost-light{border-color:var(--paper-line); color:var(--charcoal);}
+  .btn-ghost-light:hover{border-color:var(--brass); color:var(--brass);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--paper); font-size:1.5rem; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink); color:var(--paper);
+    padding:64px 0 56px;
+    border-bottom:6px solid var(--brass);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .eyebrow{color:var(--brass-light); margin-bottom:18px; display:block;}
+  .hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.4rem);
+    line-height:0.98;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--brass-light);
+  }
+  .hero p.lead{
+    font-size:1.02rem; line-height:1.6; color:var(--ash);
+    max-width:46ch; margin:22px 0 30px;
+  }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-microtrust{display:block; margin-top:18px; color:var(--ash); font-size:0.66rem;}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{background:var(--ink-soft); border-bottom:1px solid var(--ink-line);}
+  .trust-strip .wrap{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+    padding:22px 28px;
+  }
+  .trust-item{display:flex; align-items:center; gap:10px; color:var(--ash); font-size:0.82rem; line-height:1.3;}
+  .trust-item .ico{color:var(--brass); font-weight:700; flex-shrink:0;}
+
+  /* ---------- COMPARE SLIDER (image-based) ---------- */
+  .compare-wrap{position:relative;}
+  .compare{
+    position:relative; width:100%; aspect-ratio:4/5; max-width:400px; margin:0 auto;
+    border-radius:6px; overflow:hidden; border:1px solid var(--ink-line);
+    background:var(--ink-soft);
+    touch-action:none;
+    cursor:ew-resize;
+  }
+  .compare.compare-sm{aspect-ratio:4/3; max-width:none;}
+  .compare img{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; display:block; pointer-events:none; user-select:none;}
+  .compare .layer-before-mask{
+    position:absolute; top:0; left:0; height:100%; width:46%;
+    overflow:hidden; z-index:2;
+  }
+  .compare .layer-before-mask img{width:var(--full-w, 400px); max-width:none;}
+  .compare-tag{
+    position:absolute; top:12px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase;
+    padding:5px 9px; border-radius:2px; z-index:4; transition:opacity .15s;
+  }
+  .tag-before{left:12px; background:rgba(23,20,15,0.75); color:var(--ash);}
+  .tag-after{right:12px; background:rgba(185,135,63,0.9); color:var(--ink);}
+  .handle{
+    position:absolute; top:0; bottom:0; left:46%; width:0; z-index:5;
+    transform:translateX(-50%);
+  }
+  .handle::before{
+    content:""; position:absolute; top:0; bottom:0; left:50%;
+    width:2px; background:var(--paper); transform:translateX(-50%);
+  }
+  .handle-knob{
+    position:absolute; top:50%; left:50%; width:38px; height:38px;
+    transform:translate(-50%,-50%); border-radius:50%;
+    background:var(--paper); border:2px solid var(--brass);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem; color:var(--ink); cursor:ew-resize;
+  }
+  .compare-sm .handle-knob{width:30px; height:30px; font-size:0.7rem;}
+  .compare-caption{
+    text-align:center; margin-top:12px; color:var(--ash); font-size:0.72rem;
+    font-style:italic; line-height:1.4;
+  }
+
+  /* ---------- VIDEO CARD ---------- */
+  .video-card{
+    margin-top:22px; border-radius:6px; overflow:hidden; border:1px solid var(--ink-line);
+    background:var(--ink-soft); max-width:420px;
+  }
+  .video-card video{width:100%; display:block; aspect-ratio:16/9; background:#000;}
+  .video-card .video-label{
+    padding:12px 16px; font-size:0.78rem; color:var(--ash); line-height:1.4;
+  }
+  .compare-caption code{
+    background:rgba(185,135,63,0.15); color:var(--brass-light);
+    padding:1px 5px; border-radius:3px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+  }
+  .video-label code{
+    background:rgba(185,135,63,0.15); color:var(--brass);
+    padding:1px 5px; border-radius:3px; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
+  }
+
+  /* ---------- FADE STRIP DIVIDER ---------- */
+  .fade-strip{background:var(--ink); padding:0 0 40px;}
+  .fade-strip .wrap{display:flex; flex-direction:column; align-items:center; gap:12px;}
+  .fade-strip .mono{color:var(--ash);}
+  .fade-bar{width:100%; max-width:640px; height:34px; display:block;}
+
+  /* ---------- SECTIONS shared ---------- */
+  section{padding:88px 0;}
+  .section-dark{background:var(--ink); color:var(--paper);}
+  .section-dark .ash-text{color:var(--ash);}
+  .eyebrow-light{color:var(--brass);}
+  .eyebrow-onDark{color:var(--brass-light);}
+  h2.section-title{font-size:clamp(1.7rem,3vw,2.5rem); line-height:1.05; max-width:18ch;}
+  .lede{max-width:62ch; font-size:1.02rem; line-height:1.65; color:var(--charcoal); margin-top:16px;}
+  .section-dark .lede{color:var(--ash);}
+
+  /* ---------- DIFFERENCE ---------- */
+  .diff-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px;}
+  .diff-card{padding:30px; border:1px solid var(--paper-line); border-radius:4px; background:#fff;}
+  .diff-card.win{border-color:var(--brass); background:linear-gradient(180deg,#fff, #FBF4E8);}
+  .diff-label{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ash); display:block; margin-bottom:10px;}
+  .diff-card.win .diff-label{color:var(--brass);}
+  .diff-card h3{font-size:1.15rem; text-transform:none; letter-spacing:0; margin-bottom:10px; font-weight:700; font-family:'IBM Plex Sans',sans-serif;}
+  .diff-card p{margin:0; line-height:1.6; color:#5c5346; font-size:0.94rem;}
+  .diff-punch{margin-top:28px; font-size:1.05rem; font-weight:600; color:var(--ink); max-width:52ch; border-left:3px solid var(--brass); padding-left:16px;}
+
+  /* ---------- WORRY / OBJECTIONS ---------- */
+  .worry-grid{margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .worry-card{background:var(--paper); border:1px solid var(--paper-line); border-radius:4px; padding:26px;}
+  .worry-q{font-family:'Big Shoulders Display'; font-weight:800; font-size:1.05rem; line-height:1.25; color:var(--ink); margin:0 0 12px; text-transform:none; letter-spacing:0;}
+  .worry-a{margin:0; font-size:0.86rem; line-height:1.55; color:#5c5346;}
+
+  /* ---------- FIT CARDS ---------- */
+  .fit-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px;}
+  .fit-card{padding:28px; border-radius:4px; border:1px solid var(--ink-line);}
+  .fit-card.good{background:rgba(124,148,115,0.08); border-color:rgba(124,148,115,0.4);}
+  .fit-card.bad{background:rgba(176,106,86,0.08); border-color:rgba(176,106,86,0.4);}
+  .fit-card h3{font-family:'IBM Plex Sans'; text-transform:none; letter-spacing:0; font-size:1.08rem; font-weight:700; margin-bottom:14px; color:var(--paper);}
+  .fit-card ul{margin:0; padding:0; list-style:none;}
+  .fit-card li{display:flex; gap:10px; margin-bottom:10px; color:var(--ash); font-size:0.92rem; line-height:1.5;}
+  .fit-card.good li::before{content:"✓"; color:var(--good); font-weight:700;}
+  .fit-card.bad li::before{content:"–"; color:var(--bad); font-weight:700;}
+  .fit-note{margin-top:26px; font-size:0.92rem; color:var(--brass-light); font-style:italic;}
+
+  /* ---------- PROCESS ---------- */
+  .process{margin-top:50px; display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .process-step{position:relative;}
+  .dot-num{width:56px; height:56px; margin-bottom:18px;}
+  .process-step h3{font-family:'IBM Plex Sans'; text-transform:none; letter-spacing:0; font-size:1.08rem; font-weight:700; margin-bottom:8px;}
+  .process-step p{margin:0; color:#5c5346; font-size:0.92rem; line-height:1.6;}
+
+  /* ---------- RESULTS ---------- */
+  .results-grid{margin-top:46px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .result-card{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:4px; overflow:hidden;}
+  .result-card .compare-sm{border:none; border-radius:0;}
+  .result-card .cap{padding:16px 18px 20px;}
+  .result-card h3{font-family:'IBM Plex Sans'; text-transform:none; letter-spacing:0; font-size:0.98rem; font-weight:700; color:var(--paper); margin-bottom:6px;}
+  .result-card p{margin:0; font-size:0.84rem; color:var(--ash); line-height:1.5;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{margin-top:40px; max-width:760px;}
+  .faq-item{border-bottom:1px solid var(--paper-line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:20px 0; display:flex; justify-content:space-between; align-items:center;
+    font-size:1rem; font-weight:600; color:var(--charcoal); font-family:'IBM Plex Sans';
+  }
+  .faq-q .plus{font-family:'IBM Plex Mono'; font-size:1.1rem; color:var(--brass); transition:transform .2s;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{margin:0 0 20px; color:#5c5346; line-height:1.6; font-size:0.94rem; max-width:64ch;}
+
+  /* ---------- ARTIST ---------- */
+  .artist-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:center; margin-top:46px;}
+  .artist-portrait{
+    aspect-ratio:3/4; border-radius:4px;
+    border:1px solid var(--ink-line); position:relative; overflow:hidden;
+  }
+  .artist-portrait img{width:100%; height:100%; object-fit:cover; display:block;}
+  .artist-name{font-size:1.4rem; margin-bottom:4px;}
+  .artist-role{color:var(--brass-light); margin-bottom:18px; display:block;}
+  .artist-bio{color:var(--ash); line-height:1.7; font-size:0.96rem; max-width:56ch;}
+
+  /* ---------- CLOSING CTA ---------- */
+  .cta-band{background:var(--brass); color:var(--ink); padding:70px 0; text-align:center;}
+  .cta-band h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin-bottom:14px;}
+  .cta-band p{max-width:48ch; margin:0 auto 30px; font-size:1rem; line-height:1.55;}
+  .cta-band .btn-primary{background:var(--ink); color:var(--paper);}
+  .cta-band .btn-primary:hover{background:var(--charcoal);}
+  .cta-note{margin-top:18px; font-size:0.78rem; color:#5b4622;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); color:var(--ash); padding:56px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; padding-bottom:36px; border-bottom:1px solid var(--ink-line);}
+  .foot-brand{font-family:'Big Shoulders Display'; font-size:1.3rem; color:var(--paper); font-weight:900; margin-bottom:12px;}
+  .foot-grid h4{font-family:'IBM Plex Mono'; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass-light); margin:0 0 14px;}
+  .foot-grid a{display:block; margin-bottom:9px; font-size:0.9rem; color:var(--ash); transition:color .15s;}
+  .foot-grid a:hover{color:var(--paper);}
+  .foot-bottom{padding-top:22px; display:flex; justify-content:space-between; font-size:0.76rem; color:#736A5B; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .float-cta{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    background:#25D366; color:#0b2b16; padding:13px 18px; border-radius:30px;
+    display:flex; align-items:center; gap:9px; font-weight:600; font-size:0.86rem;
+    box-shadow:0 8px 22px rgba(0,0,0,0.28); transition:transform .15s;
+  }
+  .float-cta:hover{transform:translateY(-2px);}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    nav.links{position:fixed; top:64px; left:0; right:0; background:var(--ink);
+      flex-direction:column; align-items:flex-start; padding:22px 28px; gap:18px;
+      border-bottom:1px solid var(--ink-line); transform:translateY(-130%); transition:transform .25s;}
+    nav.links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero .cta-row{justify-content:flex-start;}
+    .diff-grid, .fit-grid, .process, .results-grid, .worry-grid{grid-template-columns:1fr;}
+    .artist-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr; gap:26px;}
+    .trust-strip .wrap{grid-template-columns:1fr 1fr; gap:14px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="brand">BLENDED<span>SCALPS</span></div>
+    <nav class="links" id="navLinks">
+      <a href="#unterschied">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#ergebnisse">Ergebnisse</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="btn btn-primary">Scalp-Check sichern</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="mono eyebrow">Scalp Micropigmentation — Hamburg</span>
+      <h1>Geheimratsecken &amp; lichtes Haar.<br>Optisch weg — <em>ganz ohne OP.</em></h1>
+      <p class="lead">Der Unterschied entscheidet sich am Übergang zwischen Pigmentierung und echtem Haar. Deshalb kommt die Behandlung hier nicht aus dem Tattoo-Studio, sondern von einem Barber mit dem geschulten Auge für weiche Fade-Linien. Zieh am Regler — und sieh selbst, worauf es ankommt.</p>
+      <div class="cta-row">
+        <a href="#kontakt" class="btn btn-primary">Kostenlosen Scalp-Check sichern</a>
+        <a href="#kontakt" class="btn btn-ghost-dark">Lieber per Video-Call →</a>
+      </div>
+      <span class="mono hero-microtrust">Ehrlich · Unverbindlich · Ohne Verkaufsdruck</span>
+    </div>
+    <div class="compare-wrap">
+      <div class="compare" id="compare">
+        <img class="layer-after" src="media/hero-nachher.jpg" alt="Nachher">
+        <div class="layer-before-mask" id="beforeMask">
+          <img class="layer-before" src="media/hero-vorher.jpg" alt="Vorher">
+        </div>
+        <span class="compare-tag tag-before">Vorher</span>
+        <span class="compare-tag tag-after">Nachher</span>
+        <div class="handle" id="handle">
+          <div class="handle-knob" tabindex="0" role="slider" aria-label="Vorher/Nachher Regler" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46">↔</div>
+        </div>
+      </div>
+      <p class="compare-caption">Platzhalterbilder — ersetze <code>media/hero-vorher.jpg</code> und <code>media/hero-nachher.jpg</code> durch echte Fotos im gleichen Format.</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="wrap">
+    <div class="trust-item"><span class="ico">✓</span>Seit 2019 im Handwerk</div>
+    <div class="trust-item"><span class="ico">✓</span>Persönlich durchgeführt</div>
+    <div class="trust-item"><span class="ico">✓</span>Vor Ort in Hamburg oder per Video-Call</div>
+    <div class="trust-item"><span class="ico">✓</span>Ehrlich, auch wenn's "eher nicht" heißt</div>
+  </div>
+</div>
+
+<div class="fade-strip">
+  <div class="wrap">
+    <canvas class="fade-bar" id="fadeBar"></canvas>
+    <span class="mono">Der Übergang entscheidet</span>
+  </div>
+</div>
+
+<section id="unterschied">
+  <div class="wrap">
+    <span class="mono eyebrow-light">Warum Barber-Expertise zählt</span>
+    <h2 class="section-title">Die meisten SMP-Artists kommen aus dem Tattoo-Studio. Ich komme aus dem Barbershop.</h2>
+    <p class="lede">Beide Wege führen zur Nadel — aber nur einer bringt jahrelange Erfahrung darin mit, wie echtes Haar wächst, fällt und ausdünnt.</p>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <span class="diff-label">Klassischer Weg</span>
+        <h3>Tattoo-Hintergrund</h3>
+        <p>Präzise Nadelführung, aber wenig Routine darin, wie ein natürlicher Haaransatz eigentlich verläuft. Der Übergang zur Kopfhaut wirkt dadurch häufig hart oder sichtbar aufgesetzt.</p>
+      </div>
+      <div class="diff-card win reveal">
+        <span class="diff-label">Blended-Scalps-Weg</span>
+        <h3>Barber-Hintergrund seit 2019</h3>
+        <p>Tagtägliche Arbeit an weichen, akkuraten Fade-Übergängen. Genau dieses Auge für Verläufe und Dichte fließt in jede Pigmentierung mit ein — für ein Ergebnis, das man nicht als SMP erkennt.</p>
+      </div>
+    </div>
+    <p class="diff-punch reveal">Für dich heißt das: kein sichtbarer Rand, kein auffälliges Muster von oben — sondern ein Ansatz, der aussieht, als wäre er nie weg gewesen.</p>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="wrap">
+    <span class="mono eyebrow-onDark">Ehrlich gesagt</span>
+    <h2 class="section-title">SMP ist nicht für jeden die richtige Lösung.</h2>
+    <p class="lede">Damit du dir Zeit und Erwartungen sparst, bevor du überhaupt einen Termin machst.</p>
+    <div class="fit-grid">
+      <div class="fit-card good reveal">
+        <h3>Gute Voraussetzungen</h3>
+        <ul>
+          <li>Du trägst bereits kurze Haare oder einen Fade</li>
+          <li>Du kannst dir einen Buzzcut-Look vorstellen</li>
+          <li>Deine Kopfhaut ist an den betroffenen Stellen bereits sichtbar</li>
+        </ul>
+      </div>
+      <div class="fit-card bad reveal">
+        <h3>Eher nicht die richtige Wahl, wenn …</h3>
+        <ul>
+          <li>Du dauerhaft längeres, stylbares Haar tragen möchtest</li>
+          <li>Du nur einzelne Geheimratsecken kaschieren willst, sonst aber lang trägst</li>
+          <li>Du mehr tatsächliches Haar suchst, nicht nur die Optik davon</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fit-note">Im kostenlosen Scalp-Check sagen wir dir ehrlich, ob's passt — auch wenn die Antwort "eher nicht" ist.</p>
+  </div>
+</section>
+
+<section id="fragen-vorher">
+  <div class="wrap">
+    <span class="mono eyebrow-light">Bevor du dich meldest</span>
+    <h2 class="section-title">Was dir wahrscheinlich durch den Kopf geht</h2>
+    <div class="worry-grid">
+      <div class="worry-card reveal">
+        <p class="worry-q">"Sieht man später, dass es nicht meine echten Haare sind?"</p>
+        <p class="worry-a">Genau darum geht's beim Scalp-Check: Wir schauen uns deinen Haaransatz und deine Kopfhautfarbe an und sagen dir ehrlich, wie natürlich das Ergebnis bei dir aussehen wird — vorher, nicht erst hinterher.</p>
+      </div>
+      <div class="worry-card reveal">
+        <p class="worry-q">"Lohnt sich das bei meinem Haarausfall überhaupt noch?"</p>
+        <p class="worry-a">Meistens ja — SMP funktioniert von einzelnen Geheimratsecken bis zur kompletten Neuanlage bei vollständigem Haarausfall. Wie gut es bei dir passt, klären wir gemeinsam im Check.</p>
+      </div>
+      <div class="worry-card reveal">
+        <p class="worry-q">"Was kostet das eigentlich?"</p>
+        <p class="worry-a">Der Preis richtet sich nach dem Umfang deiner Behandlung. Im kostenlosen Scalp-Check bekommst du ein konkretes, verbindliches Angebot — keine versteckten Kosten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="wrap">
+    <span class="mono eyebrow-light">So läuft es ab</span>
+    <h2 class="section-title">Drei Schritte zum Ergebnis</h2>
+    <div class="process">
+      <div class="process-step reveal">
+        <canvas class="dot-num" data-dots="3"></canvas>
+        <h3>Scalp-Check</h3>
+        <p>Kostenlos, vor Ort im Studio oder per Video-Call. Ehrliche Einschätzung, ob SMP zu deinem gewünschten Look passt.</p>
+      </div>
+      <div class="process-step reveal">
+        <canvas class="dot-num" data-dots="18"></canvas>
+        <h3>Erste Sitzung</h3>
+        <p>Aufbau der Grundstruktur und Haarlinie — meist bereits danach alltagstauglich.</p>
+      </div>
+      <div class="process-step reveal">
+        <canvas class="dot-num" data-dots="42"></canvas>
+        <h3>Nachjustierung</h3>
+        <p>Feinschliff von Dichte und Details, in der Regel 10–14 Tage später.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="ergebnisse">
+  <div class="wrap">
+    <span class="mono eyebrow-onDark">Typische Einsatzbereiche</span>
+    <h2 class="section-title">Wofür SMP am besten geeignet ist</h2>
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="compare compare-sm">
+          <img class="layer-after" src="media/ergebnis-1-nachher.jpg" alt="Nachher: komplette Neuanlage">
+          <div class="layer-before-mask">
+            <img class="layer-before" src="media/ergebnis-1-vorher.jpg" alt="Vorher: komplette Neuanlage">
+          </div>
+          <span class="compare-tag tag-before">Vorher</span>
+          <span class="compare-tag tag-after">Nachher</span>
+          <div class="handle"><div class="handle-knob" tabindex="0" role="slider" aria-label="Vorher/Nachher Regler" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46">↔</div></div>
+        </div>
+        <div class="cap"><h3>Komplette Neuanlage</h3><p>Buzzcut-Look bei vollständigem oder sehr fortgeschrittenem Haarausfall.</p></div>
+      </div>
+      <div class="result-card reveal">
+        <div class="compare compare-sm">
+          <img class="layer-after" src="media/ergebnis-2-nachher.jpg" alt="Nachher: Verdichtung">
+          <div class="layer-before-mask">
+            <img class="layer-before" src="media/ergebnis-2-vorher.jpg" alt="Vorher: Verdichtung">
+          </div>
+          <span class="compare-tag tag-before">Vorher</span>
+          <span class="compare-tag tag-after">Nachher</span>
+          <div class="handle"><div class="handle-knob" tabindex="0" role="slider" aria-label="Vorher/Nachher Regler" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46">↔</div></div>
+        </div>
+        <div class="cap"><h3>Verdichtung bestehender Haare</h3><p>Optisch mehr Fülle, wenn das Haar insgesamt dünner wird.</p></div>
+      </div>
+      <div class="result-card reveal">
+        <div class="compare compare-sm">
+          <img class="layer-after" src="media/ergebnis-3-nachher.jpg" alt="Nachher: nach Haartransplantation">
+          <div class="layer-before-mask">
+            <img class="layer-before" src="media/ergebnis-3-vorher.jpg" alt="Vorher: nach Haartransplantation">
+          </div>
+          <span class="compare-tag tag-before">Vorher</span>
+          <span class="compare-tag tag-after">Nachher</span>
+          <div class="handle"><div class="handle-knob" tabindex="0" role="slider" aria-label="Vorher/Nachher Regler" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46">↔</div></div>
+        </div>
+        <div class="cap"><h3>Nach Haartransplantation</h3><p>Kaschieren von Narben und Auffüllen der Dichte im Ansatz.</p></div>
+      </div>
+    </div>
+    <p class="compare-caption" style="margin-top:18px;">Platzhalterbilder — ersetze die Dateien <code>media/ergebnis-*-vorher.jpg</code> / <code>-nachher.jpg</code> durch echte Kundenfotos (mit Einverständnis).</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="mono eyebrow-light">Häufige Fragen</span>
+    <h2 class="section-title">Bevor du fragst</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Wie viele Sitzungen brauche ich?<span class="plus">+</span></button>
+        <div class="faq-a"><p>In der Regel zwei: Die erste deckt bereits den Großteil ab, die zweite ist meist eine kürzere Ausbesserung rund 10–14 Tage später.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie lange hält das Ergebnis?<span class="plus">+</span></button>
+        <div class="faq-a"><p>In der Regel 3–5 Jahre. Danach lässt sich die Pigmentierung mit einer kürzeren Auffrischung nachziehen.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Tut die Behandlung weh, gibt es Ausfallzeit?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Keine klassische Ausfallzeit. Die Kopfhaut ist am Behandlungstag leicht gerötet, das klingt über Nacht ab.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Für wen ist SMP nicht geeignet?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Vor allem für alle, die dauerhaft längeres, stylbares Haar behalten möchten — dazu mehr weiter oben im Abschnitt "Ehrlich gesagt".</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="wrap artist-grid">
+    <div class="artist-portrait reveal"><img src="media/portrait-sascha.jpg" alt="Porträt Sascha Maximilian"></div>
+    <div class="reveal">
+      <span class="mono eyebrow-onDark">Der Mensch dahinter</span>
+      <h2 class="artist-name">Sascha Maximilian</h2>
+      <span class="mono artist-role">Barber seit 2019 · SMP-Artist</span>
+      <p class="artist-bio">Seit 2019 arbeite ich als Barber mit Fokus auf präzise Fade-Haarschnitte — die Übergänge, bei denen ein Millimeter über "sauber" oder "sichtbar falsch" entscheidet. Über die Jahre habe ich unzählige Kunden mit Geheimratsecken und dünner werdendem Haar beraten, oft direkt auf dem Barberstuhl. Irgendwann war klar: Genau dieses Auge für Verläufe gehört auch in die Pigmentierung. Mein Anspruch bleibt derselbe wie beim Haarschnitt: kein Kompromiss beim Übergang.</p>
+      <div class="video-card">
+        <video controls poster="media/intro-video-poster.jpg">
+          <source src="media/intro-video.mp4" type="video/mp4">
+        </video>
+        <p class="video-label">Platzhalter — ersetze <code>media/intro-video.mp4</code> (+ <code>intro-video-poster.jpg</code> als Vorschaubild) durch eine kurze Vorstellung von dir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="kontakt">
+  <div class="wrap">
+    <h2>Bereit für den ehrlichen Check?</h2>
+    <p>Kostenlos, unverbindlich, ohne Verkaufsdruck — vor Ort in Hamburg oder per Video-Call. Du erfährst sofort, ob's bei dir gut aussehen wird.</p>
+    <a href="#" class="btn btn-primary">Jetzt Scalp-Check anfragen</a>
+    <p class="cta-note">Aktuell begrenzte Neukunden-Termine pro Monat, da jede Behandlung persönlich durchgeführt wird.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">BLENDED SCALPS</div>
+        <p style="max-width:36ch; line-height:1.6; font-size:0.88rem;">Scalp Micropigmentation in Hamburg — von einem Barber, für ein Ergebnis, das man nicht sieht.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="#unterschied">Leistungen</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#ergebnisse">Ergebnisse</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <a href="#">WhatsApp-Beratung</a>
+        <a href="#">Instagram · @blendedscalps</a>
+        <a href="#">Hamburg, Adresse folgt</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Blended Scalps. Alle Rechte vorbehalten.</span>
+      <span><a href="impressum.html" style="display:inline; margin:0;">Impressum</a> · <a href="datenschutz.html" style="display:inline; margin:0;">Datenschutzerklärung</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#kontakt" class="float-cta">💬 Scalp-Check</a>
+
+<script>
+// ---------- seeded random ----------
+function mulberry32(a){
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    var t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  }
+}
+
+function fitCanvas(cv){
+  const dpr = window.devicePixelRatio || 1;
+  const rect = cv.getBoundingClientRect();
+  cv.width = Math.max(1, rect.width * dpr);
+  cv.height = Math.max(1, rect.height * dpr);
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  return {ctx, w: rect.width, h: rect.height};
+}
+
+function drawDotNumeral(cv, count){
+  const {ctx, w, h} = fitCanvas(cv);
+  const rnd = mulberry32(count*97 + 13);
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = 'rgba(23,20,15,0.06)';
+  ctx.beginPath(); ctx.arc(w/2,h/2,Math.min(w,h)/2,0,Math.PI*2); ctx.fill();
+  const cx=w/2, cy=h/2, R=Math.min(w,h)/2 - 6;
+  let placed=0, attempts=0;
+  while(placed<count && attempts<count*20){
+    attempts++;
+    const a = rnd()*Math.PI*2;
+    const rr = Math.sqrt(rnd())*R;
+    const px = cx+Math.cos(a)*rr;
+    const py = cy+Math.sin(a)*rr;
+    ctx.beginPath();
+    ctx.fillStyle = '#B9873F';
+    ctx.arc(px,py,1.6,0,Math.PI*2);
+    ctx.fill();
+    placed++;
+  }
+}
+
+// Generic before/after image slider — works for the hero and every result card.
+// Just swap the <img src> in the HTML; this logic needs no changes.
+function initCompareSlider(compare){
+  const mask = compare.querySelector('.layer-before-mask');
+  const beforeImg = compare.querySelector('.layer-before');
+  const handle = compare.querySelector('.handle');
+  const knob = compare.querySelector('.handle-knob');
+  const tagBefore = compare.querySelector('.tag-before');
+  const tagAfter = compare.querySelector('.tag-after');
+
+  function sizeInner(){
+    const rect = compare.getBoundingClientRect();
+    beforeImg.style.width = rect.width + 'px';
+    beforeImg.style.height = rect.height + 'px';
+  }
+  sizeInner();
+
+  function setPos(pct){
+    pct = Math.max(4, Math.min(96, pct));
+    mask.style.width = pct + '%';
+    handle.style.left = pct + '%';
+    knob.setAttribute('aria-valuenow', Math.round(pct));
+    tagBefore.style.opacity = pct < 12 ? 0 : 1;
+    tagAfter.style.opacity = pct > 88 ? 0 : 1;
+  }
+
+  let dragging = false;
+  function pctFromEvent(e){
+    const rect = compare.getBoundingClientRect();
+    const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    return (x/rect.width)*100;
+  }
+  compare.addEventListener('pointerdown', e => { dragging = true; setPos(pctFromEvent(e)); });
+  window.addEventListener('pointermove', e => { if(dragging) setPos(pctFromEvent(e)); });
+  window.addEventListener('pointerup', () => dragging = false);
+  knob.addEventListener('keydown', e => {
+    const cur = parseFloat(handle.style.left) || 46;
+    if(e.key === 'ArrowLeft'){ setPos(cur-5); e.preventDefault(); }
+    if(e.key === 'ArrowRight'){ setPos(cur+5); e.preventDefault(); }
+  });
+
+  setPos(46);
+  window.addEventListener('resize', sizeInner);
+}
+
+function initCompareSliders(){
+  document.querySelectorAll('.compare').forEach(initCompareSlider);
+}
+
+function initProcessDots(){
+  document.querySelectorAll('.dot-num').forEach(cv=>{
+    const n = parseInt(cv.dataset.dots,10);
+    drawDotNumeral(cv, n);
+  });
+}
+
+function initFadeBar(){
+  const cv = document.getElementById('fadeBar');
+  const {ctx, w, h} = fitCanvas(cv);
+  const rnd = mulberry32(19);
+  ctx.clearRect(0,0,w,h);
+  const n = Math.round(w*h/9);
+  for(let i=0;i<n;i++){
+    const x = rnd()*w;
+    // density increases left -> right: bias placement probability by x position
+    const density = 0.12 + (x/w)*0.88;
+    if(rnd() > density) continue;
+    const y = rnd()*h;
+    const r = 0.6 + rnd()*1.1;
+    const shade = 0.45 + rnd()*0.5;
+    ctx.beginPath();
+    ctx.fillStyle = `rgba(231,183,140,${shade})`;
+    ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function initFaq(){
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{
+        o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+function initNavToggle(){
+  const btn = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  btn.addEventListener('click', ()=> links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>links.classList.remove('open')));
+}
+
+function initReveal(){
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); obs.unobserve(en.target);} });
+  }, {threshold:0.1});
+  els.forEach(el=>obs.observe(el));
+  // safety net: guarantee visibility even if the observer never fires
+  // (e.g. automated full-page captures, reduced-motion contexts, edge cases)
+  setTimeout(()=>{ els.forEach(el=>el.classList.add('in')); }, 900);
+}
+
+window.addEventListener('load', ()=>{
+  initCompareSliders();
+  initProcessDots();
+  initFadeBar();
+  initFaq();
+  initNavToggle();
+  initReveal();
+  window.addEventListener('resize', initFadeBar);
+});
+</script>
+</body>
+</html>
