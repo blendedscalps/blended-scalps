@@ -245,7 +245,21 @@
   .process-step h3{font-family:'IBM Plex Sans'; text-transform:none; letter-spacing:0; font-size:1.08rem; font-weight:700; margin-bottom:8px;}
   .process-step p{margin:0; color:#5c5346; font-size:0.92rem; line-height:1.6;}
 
-  /* ---------- RESULTS ---------- */
+  /* ---------- PRICE ---------- */
+  .price-block{margin-top:64px; padding-top:56px; border-top:1px solid var(--paper-line);}
+  .price-card{padding:30px; border:1px solid var(--paper-line); border-radius:4px; background:#fff;}
+  .price-card.win{border-color:var(--brass); background:linear-gradient(180deg,#fff, #FBF4E8);}
+  .price-card .diff-label{margin-bottom:14px;}
+  .price-card.win .diff-label{color:var(--brass);}
+  .price-card .price-amount{font-family:'Big Shoulders Display', sans-serif; font-weight:900; font-size:clamp(2.2rem,4vw,2.9rem); line-height:1; color:var(--ink); margin:0 0 12px;}
+  .price-card .price-amount small{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--ash); margin-right:8px; vertical-align:middle;}
+  .price-card p{margin:0; line-height:1.6; color:#5c5346; font-size:0.94rem;}
+  .price-incl{list-style:none; padding:0; margin:28px 0 0; display:flex; flex-wrap:wrap; gap:12px 28px;}
+  .price-incl li{display:flex; gap:9px; font-size:0.92rem; color:var(--charcoal); line-height:1.4;}
+  .price-incl li::before{content:"✓"; color:var(--brass); font-weight:700;}
+  .price-cta{margin-top:30px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
+  .price-cta .mono{color:var(--ash);}
+/* ---------- RESULTS ---------- */
   .results-grid{margin-top:46px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .result-card{background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:4px; overflow:hidden;}
   .result-card .compare-sm{border:none; border-radius:0;}
@@ -366,7 +380,7 @@ src="https://www.facebook.com/tr?id=4325073207785687&ev=PageView&noscript=1"
         <a href="https://wa.me/491638036277?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Scalp-Check" class="btn btn-primary" target="_blank">Scalp-Check sichern</a>
         <a href="https://wa.me/491638036277?text=Hallo%20ich%20w%C3%BCrde%20gerne%20einen%20Video-Call%20vereinbaren%21" class="btn btn-ghost-dark" target="_blank">Lieber per Video-Call →</a>
       </div>
-      <span class="mono hero-microtrust">Ehrlich · Unverbindlich · Ohne Verkaufsdruck</span>
+      <span class="mono hero-microtrust">Ehrlich · Unverbindlich · Ab 1.200 € · Zahlbar in 2 Raten</span>
     </div>
     <div class="compare-wrap">
       <div class="compare" id="compare">
@@ -464,7 +478,7 @@ src="https://www.facebook.com/tr?id=4325073207785687&ev=PageView&noscript=1"
       </div>
       <div class="worry-card reveal">
         <p class="worry-q">"Was kostet das eigentlich?"</p>
-        <p class="worry-a">Der Preis richtet sich nach dem Umfang deiner Behandlung. Im kostenlosen Scalp-Check bekommst du ein konkretes, verbindliches Angebot — keine versteckten Kosten.</p>
+        <p class="worry-a">Ab 1.200 €, je nach Größe der Fläche — beide Sitzungen inklusive, zahlbar in zwei Raten. Im kostenlosen Scalp-Check bekommst du deinen verbindlichen Festpreis. <a href="#preise" style="color:var(--brass); font-weight:600;">Zu den Preisen →</a></p>
       </div>
     </div>
   </div>
@@ -494,6 +508,28 @@ src="https://www.facebook.com/tr?id=4325073207785687&ev=PageView&noscript=1"
   </div>
 </section>
 
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="price-block" id="preise" style="margin-top:0;">
+      <span class="mono eyebrow-light">Transparente Preise</span>
+      <h2 class="section-title">Welche Kosten erwarten dich?</h2>
+      <div class="price-card win reveal" style="margin-top:36px; max-width:620px;">
+        <span class="diff-label">Scalp Micropigmentation</span>
+        <p class="price-amount"><small>ab</small>1.200 €</p>
+        <p>Je nach Größe der Fläche, die pigmentiert wird.</p>
+      </div>
+      <ul class="price-incl">
+        <li>Beide Sitzungen inklusive</li>
+        <li>Zahlbar in 2 Raten — je Sitzung eine</li>
+        <li>Verbindlicher Festpreis nach dem Scalp-Check</li>
+      </ul>
+      <div class="price-cta">
+        <a href="https://wa.me/491638036277?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Scalp-Check" class="btn btn-primary" target="_blank">Kostenlosen Scalp-Check sichern</a>
+        <span class="mono">Unverbindlich · Ohne Verkaufsdruck</span>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section-dark" id="ergebnisse">
   <div class="wrap">
     <span class="mono eyebrow-onDark">Typische Einsatzbereiche</span>
@@ -550,6 +586,9 @@ src="https://www.facebook.com/tr?id=4325073207785687&ev=PageView&noscript=1"
         <div class="faq-a"><p>In der Regel zwei: Die erste deckt bereits den Großteil ab, die zweite ist meist eine kürzere Ausbesserung rund 10–14 Tage später.</p></div>
       </div>
       <div class="faq-item">
+        <button class="faq-q">Was kostet SMP?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Ab 1.200 €, je nach Größe der Fläche, die pigmentiert wird. Darin sind beide Sitzungen enthalten. Bezahlt wird in zwei Raten, jeweils zur Sitzung. Im kostenlosen Scalp-Check bekommst du einen verbindlichen Festpreis, ohne versteckte Kosten.</p></div>
+      </div><div class="faq-item">
         <button class="faq-q">Wie lange hält das Ergebnis?<span class="plus">+</span></button>
         <div class="faq-a"><p>In der Regel 3–5 Jahre. Danach lässt sich die Pigmentierung mit einer kürzeren Auffrischung nachziehen.</p></div>
       </div>
@@ -608,9 +647,9 @@ src="https://www.facebook.com/tr?id=4325073207785687&ev=PageView&noscript=1"
       </div>
       <div>
         <h4>Kontakt</h4>
-        <a href="#">WhatsApp-Beratung</a>
-        <a href="#">Instagram · @blendedscalps</a>
-        <a href="#"> Versmannstrasse 42, 20457 Hamburg</a>
+                <a href="https://wa.me/491638036277?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20einen%20Scalp-Check" target="_blank">WhatsApp-Beratung</a>
+        <a href="https://www.instagram.com/blendedscalps/" target="_blank">Instagram · @blendedscalps</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Versmannstrasse+42+20457+Hamburg" target="_blank">Versmannstrasse 42, 20457 Hamburg</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -777,6 +816,15 @@ function initReveal(){
   setTimeout(()=>{ els.forEach(el=>el.classList.add('in')); }, 900);
 }
 
+// Meta Pixel: jeder Klick auf einen WhatsApp-Button zählt als "Contact"
+function initContactTracking(){
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('a[href*="wa.me"]');
+    if(!a || typeof fbq !== 'function') return;
+    fbq('track', 'Contact', {content_name: a.textContent.trim()});
+  });
+}
+initContactTracking();
 window.addEventListener('load', ()=>{
   initCompareSliders();
   initProcessDots();
